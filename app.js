@@ -1,6 +1,6 @@
 async function fetchHumorFeed() {
     try {
-        // API 대신 로컬 JSON 파일을 사용합니다.
+        // const response = await fetch('/humors/feed');
         const response = await fetch('humor_data.json');
         if (!response.ok) {
             throw new Error('JSON 파일을 불러오는데 실패했습니다.');
@@ -14,15 +14,22 @@ async function fetchHumorFeed() {
 
 function createFeedHTML(feedItem) {
     const imageListHTML = feedItem.imageList.map(img => 
-        `<img src="${img.imageUrl}" alt="유머 이미지 ${img.seq}" loading="lazy">`
+        `<div class="swiper-slide">
+            <img src="${img.imageUrl}" alt="유머 이미지 ${img.seq}" loading="lazy">
+         </div>`
     ).join('');
 
     return `
         <article class="feed-item">
             <h2>${feedItem.title}</h2>
             <p>${feedItem.description}</p>
-            <div class="image-container">
-                ${imageListHTML}
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    ${imageListHTML}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
             <time datetime="${feedItem.createDate}">${new Date(feedItem.createDate).toLocaleDateString('ko-KR')}</time>
         </article>
@@ -32,10 +39,22 @@ function createFeedHTML(feedItem) {
 async function updateFeed() {
     const feedContainer = document.getElementById('feed-container');
     const data = await fetchHumorFeed();
-    console.log(data);
     if (data && data.length > 0) {
         const feedHTML = data.map(createFeedHTML).join('');
         feedContainer.innerHTML = feedHTML;
+        
+        // Swiper 초기화
+        data.forEach((_, index) => {
+            new Swiper(`.feed-item:nth-child(${index + 1}) .swiper`, {
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        });
     } else {
         feedContainer.innerHTML = '<p>피드를 불러올 수 없습니다.</p>';
     }

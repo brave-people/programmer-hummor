@@ -35,3 +35,14 @@ body {
 .feed-item p {
     color: #b0b0b0;
 }
+
+.swiper {
+    width: 100%;
+    height: 300px; /* 원하는 높이로 조정하세요 */
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
