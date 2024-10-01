@@ -1,0 +1,35 @@
+[
+  {
+    "title": "프로그래머의 일상",
+    "description": "버그를 찾다가 결국 세미콜론이 없어서였다는 걸 깨달았을 때의 표정",
+    "imageList": [
+      {
+        "id": 1,
+        "seq": 1,
+        "imageUrl": "https://example.com/programmer_face1.jpg"
+      },
+      {
+        "id": 2,
+        "seq": 2,
+        "imageUrl": "https://example.com/programmer_face2.jpg"
+      }
+    ],
+    "language": "KO",
+    "createDate": "2023-09-30T10:00:00Z",
+    "updateDate": "2023-09-30T10:00:00Z"
+  },
+  {
+    "title": "코드 리뷰의 진실",
+    "description": "동료의 코드를 리뷰하다가 발견한 엄청난 버그",
+    "imageList": [
+      {
+        "id": 3,
+        "seq": 1,
+        "imageUrl": "https://example.com/code_review1.jpg"
+      }
+    ],
+    "language": "KO",
+    "createDate": "2023-09-29T15:30:00Z",
+    "updateDate": "2023-09-29T15:30:00Z"
+  }
+]
