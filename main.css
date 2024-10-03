@@ -48,7 +48,7 @@ body {
 
 .feed-item h2 {
     margin-top: 0;
-    color: #bb86fc;
+    color: white;
 }
 .feed-item p {
     color: #b0b0b0;
@@ -56,11 +56,21 @@ body {
 
 .swiper {
     width: 100%;
-    height: 300px; /* 원하는 높이로 조정하세요 */
+    height: auto; /* 고정 높이 제거 */
+    /* max-height: 500px; 최대 높이 설정 */
+    margin-bottom: 15px;
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e; /* 배경색 추가 */
 }
 
 .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* cover에서 contain으로 변경 */
+    max-height: 500px; /* 최대 높이 설정 */
 }

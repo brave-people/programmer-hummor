@@ -31,7 +31,6 @@ function createFeedHTML(feedItem) {
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-            <time datetime="${feedItem.createDate}">${new Date(feedItem.createDate).toLocaleDateString('ko-KR')}</time>
         </article>
     `;
 }
