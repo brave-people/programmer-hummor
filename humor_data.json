@@ -6,12 +6,12 @@
       {
         "id": 1,
         "seq": 1,
-        "imageUrl": "https://example.com/programmer_face1.jpg"
+        "imageUrl": "https://github.com/new-covenant/programmer-humor-db/blob/main/static/test/KakaoTalk_Photo_2024-10-01-17-39-55.jpeg?raw=true"
       },
       {
         "id": 2,
         "seq": 2,
-        "imageUrl": "https://example.com/programmer_face2.jpg"
+        "imageUrl": "https://raw.githubusercontent.com/new-covenant/programmer-humor-db/refs/heads/main/static/test/KakaoTalk_Photo_2024-10-01-17-39-30.webp"
       }
     ],
     "language": "KO",
