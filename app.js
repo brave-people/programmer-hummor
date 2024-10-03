@@ -1,28 +1,28 @@
 async function fetchHumorFeed() {
     try {
-        // const response = await fetch('/humors/feed');
-        const response = await fetch('humor_data.json');
+        const apiUrl = process.env.REAL_API_HOST || 'humor_data.json';
+        const response = await fetch(apiUrl + '/front/v1/humors?orderType=RECENTLY&langType=ENG,KO');
         if (!response.ok) {
-            throw new Error('JSON 파일을 불러오는데 실패했습니다.');
+            throw new Error('fail to call API');
         }
         return await response.json();
     } catch (error) {
-        console.error('피드를 가져오는 중 오류 발생:', error);
+        console.error('fail to get feed:', error);
         return null;
     }
 }
 
 function createFeedHTML(feedItem) {
-    const imageListHTML = feedItem.imageList.map(img => 
+    const imageListHTML = feedItem.image_list.map(img => 
         `<div class="swiper-slide">
-            <img src="${img.imageUrl}" alt="유머 이미지 ${img.seq}" loading="lazy">
+            <img src="${img.image_url}" alt="유머 이미지 ${img.seq}" loading="lazy">
          </div>`
     ).join('');
 
     return `
         <article class="feed-item">
             <h2>${feedItem.title}</h2>
-            <p>${feedItem.description}</p>
+            <p>${feedItem.content}</p>
             <div class="swiper">
                 <div class="swiper-wrapper">
                     ${imageListHTML}
@@ -55,9 +55,9 @@ async function updateFeed() {
             });
         });
     } else {
-        feedContainer.innerHTML = '<p>피드를 불러올 수 없습니다.</p>';
+        feedContainer.innerHTML = '<p>Fail to call feed.</p>';
     }
 }
 
-// 페이지 로드 시 피드 업데이트
+// feed update when page loading
 document.addEventListener('DOMContentLoaded', updateFeed);
