@@ -223,3 +223,13 @@ body {
         width: 100%;
     }
 }
+
+.end-message {
+    background-color: #1e1e1e;
+    color: #b0b0b0;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+}

@@ -45,6 +45,13 @@ async function updateFeed() {
         const feedHTML = data.map(createFeedHTML).join('');
         feedContainer.innerHTML = feedHTML;
         
+        // 마지막 메시지 추가
+        feedContainer.innerHTML += `
+            <div class="end-message">
+                😀 모든 유머를 읽었습니다.
+            </div>
+        `;
+        
         // Swiper 초기화
         data.forEach((_, index) => {
             new Swiper(`.feed-item:nth-child(${index + 1}) .swiper`, {
