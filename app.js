@@ -1,8 +1,10 @@
 async function fetchHumorFeed() {
     try {
+        const response = await fetch('humor_data.json');
+        
         // const apiUrl = process.env.REAL_API_HOST || 'humor_data.json';
-        const apiUrl = 'https://real-brave-people.p-e.kr';
-        const response = await fetch(apiUrl + '/front/v1/humors?orderType=RECENTLY&langType=ENG,KO');
+        // const apiUrl = 'https://real-brave-people.p-e.kr';
+        // const response = await fetch(apiUrl + '/front/v1/humors?orderType=RECENTLY&langType=ENG,KO');
         if (!response.ok) {
             throw new Error('fail to call API');
         }
